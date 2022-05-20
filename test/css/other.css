@@ -1,0 +1,256 @@
+.article-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* 上传笔记的表单 */
+.write-article {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* 上传文件的盒子 包括上传的照片 */
+.input-files {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.input-files ul {
+    overflow: hidden;
+}
+
+.input-files ul li {
+    position: relative;
+    float: left;
+    margin: 5px 10px;
+    width: 80px;
+    height: 80px;
+    /* overflow: hidden; */
+}
+
+.input-files ul li img {
+    width: 100%;
+    height: 100%;
+}
+
+.input-files ul li i::before {
+    content: 'x';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: #fff;
+
+}
+
+.input-files ul li i {
+    position: absolute;
+    top: -5px;
+    right: 0;
+
+    width: 16px;
+    height: 16px;
+
+    border-radius: 50%;
+    background-color: #000;
+
+    cursor: pointer;
+
+}
+
+
+/* 修饰上传文件的盒子 */
+.fakefile-btn {
+    display: inline-block;
+    position: relative;
+    margin-left: 15px;
+    width: 80px;
+    height: 80px;
+    background-color: #f5f5f5;
+    cursor: pointer;
+}
+
+.fakefile-btn::before {
+    content: '';
+    font-family: 'iconfont';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-size: 26px;
+}
+
+/* 上传照片的input */
+.file-btn {
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    /* background-color: pink; */
+    z-index: 2;
+}
+
+.input-files>img {
+    float: left;
+    margin: 0 10px;
+}
+
+
+/* 填写标题的地方 */
+.article-title {
+    padding: 5px 10px;
+    font-weight: 700;
+    font-size: 18px;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+/* 添加正文的地方 */
+.article-info {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.article-submit {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+/* 上传的照片样式 */
+
+
+/* 添加tag的地方 */
+.tag-btn {
+    padding: 5px 5px;
+    margin-left: 10px;
+    background-color: #f2f2f2;
+    font-size: 14px;
+
+    border: 1px solid #998c8c;
+}
+
+.exp-tag {
+    padding: 20px 10px;
+    font-size: 20px;
+    color: #a062d4;
+}
+
+.exp-tag span {
+    padding-right: 10px;
+}
+
+.article-submit-btn {
+    width: 100%;
+    border-radius: 20px;
+    padding: 15px 0;
+    color: #fff;
+    background-color: #a062d4;
+    /* margin: 10px 10px; */
+}
+
+/* 修改资料的样式 */
+/* #edit {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    z-index: 20;
+} */
+
+.edit-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+.edit-avatar {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+}
+
+/* 隐藏掉上传文件 */
+.avatarbox {
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+
+}
+
+.avatar-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    opacity: 0;
+}
+
+.edit-basic {
+    padding: 0 15px;
+}
+
+.edit-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    width: 100%;
+    font-size: 16px;
+    border-bottom: 1px solid #f2f2f2;
+    cursor: pointer;
+}
+
+.edit-row:first-child {
+    border-top: 1px solid #f2f2f2;
+}
+
+.edit-left {
+    color: #797979;
+    font-size: 18px;
+}
+
+
+.edit-right::after,
+.edit-right-gender::after {
+    content: '';
+    font-family: 'iconfont';
+    padding-left: 5px;
+}
+
+.edit-btn {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    height: 60px;
+    color: #fff;
+    border-radius: 20px;
+    background-color: #a062d4;
+}
+
+/* 修改性别栏样式 */
+.edit-gender .unique-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+
+}
+
+.edit-gender input {
+    width: 20px;
+    height: 20px;
+    margin: 0 10px;
+}

@@ -1,0 +1,248 @@
+/* 这里存放一些可以直接应用的模块 */
+.result-list {
+    width: 100%;
+    background-color: #fff;
+}
+
+.main-list {
+    display: none;
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+}
+
+.main-list>ul {
+    width: 100%;
+    columns: 2;
+    padding: 10px 10px;
+}
+
+
+
+.main-list .item {
+    display: flex;
+    width: 100%;
+    padding: 5px 0;
+    justify-content: space-between;
+    flex-direction: column;
+    /* 防止分页后被截断了 */
+    break-inside: avoid;
+}
+
+.content-box {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #dedede;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.exp-img {
+    width: 100%;
+    max-height: 300px;
+    overflow: hidden;
+}
+
+.exp-title {
+    padding: 8px 8px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+/* 存放用户信息和收藏数  */
+.exp-author {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 5px 10px 5px;
+}
+
+.avatar {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+}
+
+/*关注按钮*/
+.follow {
+    background-color: #a063d4;
+    color: #fff;
+}
+
+.nofollow {
+    background-color: #fff;
+    color: #a063d4;
+    border: 1px solid #a063d4;
+}
+
+/*状态栏*/
+.index-title {
+    position: relative;
+    display: flex;
+    min-height: 40px;
+    padding: 10px 0 10px 0;
+    width: 100%;
+}
+
+
+.index-title h1 {
+    flex: 1;
+    text-align: center;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+/* 首页图标设置样式 */
+.index-title a {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 0 10px;
+    font-size: 22px;
+}
+
+.index-title a:first-child {
+    position: absolute;
+    left: 0px;
+}
+
+.index-title a:last-child {
+    position: absolute;
+    right: 0px;
+}
+
+/* 存放用户信息和收藏数  */
+.exp-author {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 5px 10px 5px;
+}
+
+.avatar {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+}
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* 阻止用户点击其他地方的遮罩层 */
+.unique {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 999;
+    cursor: default;
+}
+
+.unique-box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 300px;
+    height: 200px;
+
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.7);
+
+}
+
+.unique-box p {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 2px;
+}
+
+.unique-box input {
+    width: 80%;
+    font-size: 16px;
+    padding: 2px 10px;
+    color: #fff;
+    border-bottom: 1px solid #f2f2f2;
+    background-color: transparent;
+}
+
+.unique-box button {
+    font-size: 18px;
+    width: 60%;
+    margin-top: 20px;
+    padding: 6px 0;
+    border-radius: 15px;
+}
+
+/*溢出隐藏*/
+.hidden {
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+/* 字体样式 */
+@font-face {
+    font-family: "iconfont";
+    /* Project id 3251423 */
+    src: url('iconfont.woff2?t=1650472226106') format('woff2'),
+        url('iconfont.woff?t=1650472226106') format('woff'),
+        url('iconfont.ttf?t=1650472226106') format('truetype');
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 左浮动 */
+.fl {
+    float: left;
+}
+
+/* 右浮动 */
+.fr {
+    float: right;
+}
+
+/* 一些字体颜色 */
+.style_purple {
+    color: #6741dc;
+}
+
+.style_blue {
+    color: #007bff;
+}
+
+.style_green {
+    color: #4ca80b;
+}
+
+.style_orange {
+    color: #f3670a;
+}
+
+.style_grey {
+    color: #a3a3a3;
+}
+
+.style_white {
+    color: #fff;
+}

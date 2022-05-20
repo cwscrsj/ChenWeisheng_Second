@@ -1,0 +1,255 @@
+#page {
+    /* display: block; */
+}
+
+.page-content {
+    padding-bottom: 40px;
+}
+
+.page-content h1 {
+    padding-left: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-content .index-title {
+    position: sticky;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    z-index: 10;
+}
+
+.page-userinfo {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.page-userAva {
+    margin-right: 7px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.page-follow {
+    padding: 0 10px;
+}
+
+.page-follow i {
+    padding: 3px 8px;
+    font-size: 14px;
+    /* background-color:; */
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.page-content-cal {
+    width: 100%;
+    overflow: hidden;
+}
+
+.page-content-cal .main-cal {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    overflow: hidden;
+}
+
+.page-content-cal ul {
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 0;
+    height: 100%;
+    transition: 0.5s ease;
+}
+
+.page-content-cal ul li {
+    float: left;
+    width: 400px;
+}
+
+.page-content-cal .main-cal img {
+    object-fit: cover;
+}
+
+.page-circle {
+    padding: 8px 0;
+    display: flex;
+    justify-content: center;
+
+
+}
+
+.page-circle li {
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #c5a17e;
+    border-radius: 5px;
+    transition: ease 0.5s;
+}
+
+.page-circle .current {
+    width: 30px;
+    background-color: #a063d4;
+}
+
+.page-content-form {
+    padding: 0 10px 15px 10px;
+    border-bottom: 1px solid #d4cdcd;
+}
+
+.page-content-title-words {
+    padding: 5px 0;
+    font-size: 20px;
+}
+
+.page-content-para-words {
+    padding: 5px 0;
+    font-size: 15px;
+}
+
+.page-content-tag {
+    padding: 5px 0;
+}
+
+.page-content-tag span {
+    font-size: 14px;
+    color: #a063d4;
+}
+
+.page-content-other {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-dislike {
+    padding: 5px 5px;
+    color: #a063d4;
+    border: 1px solid #a063d4;
+    border-radius: 10px;
+    cursor: pointer;
+
+
+}
+
+.page-dislike .current {
+    background-color: #a063d4;
+    color: #fff;
+    border: 0;
+}
+
+.page-dislike::before {
+    content: '';
+    font-family: 'iconfont';
+    font-size: 14px;
+    padding-right: 2px;
+}
+
+.page-date {
+    font-size: 14px;
+}
+
+.page-review {
+    padding: 10px 8px;
+    min-height: 500px;
+}
+
+.page-post-reviewbox {
+    display: flex;
+    padding: 10px 0;
+}
+
+.page-post-review {
+    flex: 1;
+    padding: 0 5px;
+    background-color: #ebebeb;
+    border-radius: 5px;
+}
+
+/* 底部导航栏 */
+.page-bottom-nav {
+    position: fixed;
+    bottom: 0;
+
+    display: flex;
+
+    padding: 5px 5px;
+    width: 100%;
+    height: 40px;
+    max-width: 443px;
+
+    background-color: #fff;
+    z-index: 10;
+}
+
+.page-bottom-nav::before {
+    content: '';
+}
+
+/* 设置一下图标样式 */
+.page-bottom-nav>span {
+    padding: 0 8px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #9c9a9c;
+}
+
+.page-bottom-nav>span p {
+    color: #000;
+}
+
+.page-bottom-nav .current {
+    color: red;
+}
+
+.page-bottom-nav i {
+    font-size: 24px;
+    padding-right: 3px;
+
+}
+
+
+/* 评论界面 */
+.page-review-content {
+    width: 100%;
+    padding-top: 15px;
+}
+
+.page-review-content>ul li {
+    padding: 10px 0 10px 0;
+    border-bottom: 1px solid #ece9e9;
+}
+
+.page-review-content>ul li img {
+    float: left;
+    margin: 8px 10px 5px 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.page-review-content>ul li p {
+    padding: 5px 0;
+    font-size: 15px;
+}
+
+.page-review-content>ul li div {
+    color: #9c9a9c;
+}
+
+/* 二级评论 */
+.page-review-content>ul>ul {
+    margin-left: 40px;
+}
+
+.page-review-content>ul>ul li {
+    padding: 5px 5px;
+    border: 0;
+}

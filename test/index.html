@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="font/iconfont.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/other.css">
+    <link rel="stylesheet" href="css/agreeStar.css">
+    <link rel="stylesheet" href="css/page.css">
+</head>
+
+<body>
+    <!-- 负责跳转到首页的按钮 -->
+    <!-- <i class="back-index"></i> -->
+    <!-- 阻止用户点击其他地方的遮罩层 -->
+    <div class="unique" id="unique" style="display: none;">
+        <div class="unique-box">
+            <p id="showhtml"></p>
+        </div>
+    </div>
+
+    <div id="login" class="main">
+        <div class="login-content ">
+            <div class="loRe-box">
+                <div class="loRe login-front">
+                    <div class="loRe-title login-title">
+                        <h1>Login</h1>
+                    </div>
+                    <form action="" class="loRe-form" id="login-form">
+                        <div class="username-box input-box">
+                            <input type="text" placeholder="用户名" name="username" class="username">
+                        </div>
+                        <div class="password-box input-box">
+                            <input type="password" placeholder="密码" name="password" class="password">
+                        </div>
+                        <div class="loginform-tips">
+                        </div>
+                        <div class="submit-box input-box">
+                            <button type='button' class="btn-loRe btn-login">登录</button>
+                        </div>
+
+                        <div class="change-btn">
+                            还没有账号？<span id="reg-tag">立即注册</span>
+                        </div>
+                    </form>
+
+
+                </div>
+                <div class="loRe register-back">
+                    <div class="loRe-title reg-title">
+                        <h1>REGISTER</h1>
+                    </div>
+                    <form action="" class="loRe-form reg-form" id="register-form">
+                        <div class="username-box input-box">
+                            <input type="text" placeholder="用户名" name="username" class="username">
+                        </div>
+                        <div class="password-box input-box">
+                            <input type="password" placeholder="密码" name="password" class="regpassword">
+                        </div>
+                        <div class="password-box input-box">
+                            <input type="password" placeholder="确认密码" name="surepassword" class="surepassword">
+                        </div>
+
+                        <div class="regform-tips">
+                        </div>
+
+                        <div class="submit-box input-box">
+                            <button type="button" class="btn-loRe btn-reg">立即注册</button>
+                        </div>
+
+                        <div class="change-btn">
+                            已有账号？<span id="login-tag">立即登录</span>
+                        </div>
+                    </form>
+
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div id="index" class="main">
+        <div class="index-content index-navchange" style="display: block;">
+            <header class="index-title">
+                <a href="#" class="article-icon iconfont " id="article-icon">
+                    &#xe8fe;
+                </a>
+                <h1> 首页 </h1>
+                <a href="#" class="search-icon iconfont ">
+                    &#xe7b3;
+                </a>
+            </header>
+
+            <nav class="view-nav">
+                <ul class="view-nav-ul">
+                    <li class="current"><a href="#">推荐</a></li>
+                    <li><a href="#">旅行</a></li>
+                    <li><a href="#">美食</a></li>
+                    <li><a href="#">时尚</a></li>
+                    <li><a href="#">彩妆</a></li>
+                    <li><a href="#">高效</a></li>
+                    <li><a href="#">护肤</a></li>
+                </ul>
+            </nav>
+
+            <div class="result-list" id="index-homepage">
+                <div class="main-list" style="display: block;"></div>
+                <div class="main-list"></div>
+                <div class="main-list"></div>
+                <div class="main-list"></div>
+                <div class="main-list"></div>
+                <div class="main-list"></div>
+                <div class="main-list"></div>
+            </div>
+        </div>
+
+        <div class="index-msg index-navchange">
+            111
+        </div>
+        <div class="index-man index-navchange">
+            <header class="index-title">
+
+                <!-- <input type="text" name="userId" style="display: none;"> -->
+                <button type="button" class="article-icon iconfont quit-login" id="quit-login">
+                    &#xe61b;
+                </button>
+
+            </header>
+
+            <div class="user-infor">
+                <img src="" alt="" id="man-avatar" class="man-avatar">
+                <h4 class="man-userName" id="man-userName">请先登录！</h4>
+            </div>
+
+            <div class="man-detail">
+                <span class="user-item" id="followbtn">
+                    <p id="man-follower">0</p>
+                    <h4>关注</h4>
+                </span>
+                <span class="user-item" id="fansbtn">
+                    <p id="man-fans">0</p>
+                    <h4>粉丝</h4>
+                </span>
+                <span class="user-item" id="agreeStarbtn">
+                    <p id="man-agree">0</p>
+                    <h4>点赞与收藏</h4>
+                </span>
+                <div id="user-editbox" class="user-editbox">
+                    <span class="user-edit" id="user-edit">编辑资料</span>
+                </div>
+            </div>
+
+            <div class="man-tab">
+                <nav class="view-nav">
+                    <ul class="view-nav-ul">
+                        <li class="current"><a href="#">笔记</a></li>
+                        <li><a href="#">收藏</a></li>
+                        <li><a href="#">赞过</a></li>
+                    </ul>
+                </nav>
+                <div class="man-list">
+                    <div class="main-list" id="user-note-item" style="display:block;"></div>
+                    <div class="main-list" id="user-star-item"></div>
+                    <div class="main-list" id="user-agree-item"></div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <nav class="bottom-nav" id="index-bottom-nav">
+            <ul>
+                <li class="bottom-nav-index  current">
+                    <i class="iconfont">&#xe626;</i>
+                    <p>首页</p>
+                </li>
+                <li class="bottom-nav-msg">
+                    <i class="iconfont">&#xe78a; </i>
+                    <p>我的消息</p>
+                <li class="bottom-nav-ide" id="text">
+                    <i class="iconfont">&#xe604;</i>
+                    <p>个人中心</p>
+
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+
+    <div id="article" class="main second">
+        <div class="article-content">
+            <header class="index-title">
+                <a href="#" class="article-icon iconfont back-previous">
+                    &#xe743;
+                </a>
+            </header>
+            <form action="" id="form-img" class="write-article">
+                <div class="input-files">
+                    <ul>
+                    </ul>
+
+                    <div class="fakefile-btn">
+                        <input type="file" name="image" class="file-btn" id="file-btn" multiple="multiple">
+                    </div>
+
+                </div>
+            </form>
+        </div>
+        <div class="article-titleBox">
+            <textarea id="article-title" class="article-title" autocomplete="off" placeholder="请输入文章标题嗷~" maxlength="50"
+                style="resize: none;" rows="1"></textarea>
+        </div>
+        <div class="article-infoBox">
+            <textarea cols="30" rows="10" id="article-info" class="article-info" style=" width: 100%;"
+                placeholder="请输入正文"></textarea>
+        </div>
+        <div class="article-tagBox">
+            <span class="tag-btn" id="tag-btn">#话题</span>
+            <!-- 弹窗 -->
+            <div class="unique" id='tag-unique' style="display: none;">
+                <div class="unique-box">
+                    <input type="text" placeholder="请输入话题" id="tag-inner">
+                    <button type="button" class="article-sure">确认</button>
+                </div>
+            </div>
+            <p class="exp-tag" id="exp-tag">
+            </p>
+        </div>
+        <div class="article-submit">
+            <!-- <input type="submit" value="发布笔记" class="article-submit-btn"> -->
+            <button type="button" class="article-submit-btn" id="article-submit-btn">发布笔记</button>
+        </div>
+
+    </div>
+
+
+    <div id="edit" class="main second">
+        <div class="edit-content">
+            <header class="index-title">
+                <a href="#" class="article-icon iconfont back-previous">
+                    &#xe743;
+                </a>
+                <h1> 编辑资料</h1>
+            </header>
+            <div class="edit-avatar">
+                <div class="avatarbox">
+                    <form action="" id="formImages">
+                        <input type="file" name="avatar" class="avatar-btn" id="file-btn-img" accept="image/*">
+                        <input type="text" name="userId" style="display: none;" class="disappear" value="">
+                    </form>
+                    <img src="" id="avatar-img" class="avatar-img" width="80px" height="80px">
+                </div>
+            </div>
+            <div class="edit-basic">
+                <form action="" id="editBase">
+                    <div class="edit-name edit-row">
+                        <span class="edit-left">名字</span>
+                        <span class="edit-right" id="edit-name"> little</span>
+                        <div class="unique" style="display: none;">
+                            <div class="unique-box">
+                                <input type="text" name="nickname" id="editInput-nickn">
+                                <button type="button" class="edit-sure">确认</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="edit-gender edit-row">
+                        <span class="edit-left">性别</span>
+                        <span class="edit-right-gender" id="edit-gender">little</span>
+                        <div class="unique" style="display: none;">
+                            <div class="unique-box">
+                                <input type="radio" name="gender" id="gender-1" value="1" class="gender-input">
+                                <label for="gender-1">男</label>
+
+                                <input type="radio" name="gender" id="gender-0" value="0" class="gender-input">
+                                <label for="gender-0">女</label>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="edit-birth edit-row">
+                        <span class="edit-left">生日</span>
+                        <span class="edit-right" id="edit-birth"> little</span>
+                        <div class="unique" style="display: none;">
+                            <div class="unique-box">
+                                <input type="date" name="birthday" id="editInput-birth" value="">
+                                <button type="button" class="edit-sure">确认</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="edit-area edit-row">
+                        <span class="edit-left">地区</span>
+                        <span class="edit-right" id="edit-area"> little</span>
+                        <div class="unique" style="display: none;">
+                            <div class="unique-box">
+                                <input type="text" name="area" id="editInput-area" value="">
+                                <button type="button" class="edit-sure">确认</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="edit-desc edit-row">
+                        <span class="edit-left">简介</span>
+                        <span class="edit-right" id="edit-desc"> little</span>
+                        <div class="unique" style="display: none;">
+                            <div class="unique-box">
+                                <input type="text" name="description" id="editInput-desc" value="">
+                                <button type="button" class="edit-sure">确认</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <input type="text" name="userId" style="display: none;" class="disappear" value="">
+
+                </form>
+
+                <div class="edit-submit">
+                    <button type="button" id="edit-submit" class="edit-btn">保存信息</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="agreeStar" class="main second">
+        <div class="agreeStar-content">
+            <header class="index-title">
+                <a href="#" class="article-icon iconfont back-previous">
+                    &#xe743;
+                </a>
+                <h1> 获赞与收藏</h1>
+            </header>
+
+            <nav class="view-nav">
+                <ul class="view-nav-ul">
+                    <li class="current"><a href="#">获赞</a></li>
+                    <li><a href="#">收藏</a></li>
+                </ul>
+            </nav>
+
+            <div class="agreeStar-result">
+                <ul class="normal-list" style="display: block;" id="agree-list">
+                </ul>
+
+                <ul class="normal-list" id="star-list">
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 关注列表详情页 -->
+    <div id="follow" class="main second">
+        <div class="follow-content">
+            <header class="index-title">
+                <a href="#" class="article-icon iconfont back-previous">
+                    &#xe743;
+                </a>
+                <h1>关注的人</h1>
+            </header>
+
+            <div class="follow-result">
+                <ul class="follow-list" style="display: block;" id="follow-list"> </ul>
+            </div>
+        </div>
+
+    </div>
+    <!-- 粉丝详情页 -->
+    <div id="fans" class="main second">
+        <div class="fans-content">
+            <header class="index-title">
+                <a href="#" class="article-icon iconfont back-previous">
+                    &#xe743;
+                </a>
+                <h1>粉丝</h1>
+            </header>
+
+            <div class="fans-result">
+                <ul class="fans-list" style="display: block;" id="fans-list"> </ul>
+            </div>
+        </div>
+
+    </div>
+    <!-- 文章详情页 -->
+    <div id="page" class="main second">
+        <div class="page-content">
+            <header class="index-title">
+                <a href="#" class="article-icon iconfont back-previous">
+                    &#xe743;
+                </a>
+                <h1>
+                    <span class="page-userinfo" id="page-userbtn">
+                        <img src="" class="page-userAva" id="page-userAva-author" alt="">
+                        <span class="page-userNick" id="page-userNick">无用户</span>
+                    </span>
+
+                    <span class="page-follow">
+                        <i class="" id="page-followbtn"></i>
+                        <form action="" style="display: none;">
+                            <input type="text" name="userId">
+                            <input type="text" name="followerId">
+                        </form>
+                    </span>
+                </h1>
+            </header>
+            <!-- 轮播图部分 -->
+            <section class="page-content-cal">
+                <div class="main-cal" id="page-cal">
+                    <ul class="move-box" id="page-content-img">
+                    </ul>
+                </div>
+
+                <ol class="page-circle" id="page-circle">
+                </ol>
+            </section>
+
+            <div class="page-content-form">
+                <section class="page-content-title">
+                    <h2 class="page-content-title-words" id="page-title">加载标题中</h2>
+                </section>
+                <section class="page-content-para">
+                    <p class="page-content-para-words" id="page-content">
+                        加载正文中
+                    </p>
+                </section>
+
+                <section class="page-content-tag" id="page-tag">
+                    <span>#彩妆</span>
+                </section>
+
+                <section class="page-content-other">
+                    <span class="page-date" id="page-date">2-10</span>
+                    <span class="page-dislike" id="page-dislike">不喜欢</span>
+                </section>
+
+            </div>
+
+            <div class="page-review">
+                <p class="page-review-numbox">
+                    共有<span class="page-review-num" id="page-review-num">0</span>条评论
+                </p>
+
+                <div class="page-post-reviewbox">
+                    <img src="images/jennie.jpg" alt="" class="page-userAva">
+                    <input type="text" placeholder="说点什么呗" class="page-post-review">
+                </div>
+
+                <div class="page-review-content" id="page-review-content">
+                </div>
+            </div>
+
+
+
+            <!-- <div class="" -->
+
+        </div>
+
+        <nav class="page-bottom-nav">
+            <input type="text" placeholder="说点什么..." class="page-post-review">
+            <span class="page-like-btn" id="page-like-btn">
+                <i class="iconfont">&#xe69d;</i>
+                <p class="page-like-num" id="page-like-num">0</p>
+            </span>
+
+            <span class="page-star-btn" id="page-star-btn">
+                <i class="iconfont">&#xe658;</i>
+                <p class="page-star-num" id="page-star-num">0</p>
+            </span>
+
+            <span class="page-review-btn ">
+                <i class="iconfont">&#xe669;</i>
+                <p class="page-review-num">0</p>
+            </span>
+        </nav>
+
+    </div>
+
+    <!-- 其他用户详情页 -->
+    <div id="user" class="main">
+        <header class="index-title">
+        </header>
+        <div class="user-infor">
+            <img src="" alt="" class="man-avatar">
+            <h4 class="man-userName">请先登录！</h4>
+        </div>
+
+        <div class="man-detail">
+            <span class="user-item">
+                <p id="otheruser-follower">0</p>
+                <h4>关注</h4>
+            </span>
+            <span class="user-item">
+                <p id="otheruser-fans">0</p>
+                <h4>粉丝</h4>
+            </span>
+            <span class="user-item">
+                <p id="otheruser-agree">0</p>
+                <h4>点赞与收藏</h4>
+            </span>
+            <div class="user-editbox">
+                <span class="user-edit" id="otheruser-msg">发送信息</span>
+            </div>
+        </div>
+
+        <div class="man-tab">
+            <nav class="view-nav">
+                <ul class="view-nav-ul">
+                    <li class="current"><a href="#">笔记</a></li>
+                    <li><a href="#">收藏</a></li>
+                    <li><a href="#">赞过</a></li>
+                </ul>
+            </nav>
+            <div class="man-list">
+                <div class="main-list" id="otheruser-note-item" style="display:block;"></div>
+                <div class="main-list" id="otheruser-star-item"></div>
+                <div class="main-list" id="otheruser-agree-item"></div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="js/common.js"></script>
+    <script src="js/ajax.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/page.js"></script>
+    <script src="js/other.js"></script>
+    <script src="js/article.js"></script>
+</body>
+
+</html>

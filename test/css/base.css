@@ -1,0 +1,79 @@
+/* 内外边距清零 */
+
+* {
+    margin: 0;
+    padding: 0;
+    /* css3盒子模型 */
+    box-sizing: border-box;
+}
+
+/* 保证textarea区域没有边框 */
+textarea {
+    border: 0;
+    outline: 0;
+}
+
+/* em 和 i 斜体的文字不倾斜 */
+em,
+i {
+    font-style: normal
+}
+
+/* 去掉li 的小圆点 */
+li {
+    list-style: none
+}
+
+/* 把所有链接转换为块级元素 */
+a {
+    display: block;
+    color: #000;
+    text-decoration: none;
+
+}
+
+img {
+    /* 取消图片底侧有空白缝隙的问题 */
+    vertical-align: middle;
+}
+
+button {
+    /* 鼠标经过button 按钮的时候，鼠标变成手 */
+    cursor: pointer;
+}
+
+
+p {
+
+    font-size: 14px;
+}
+
+button,
+input {
+    /* 默认有灰色边框需要手动去掉 */
+    border: 0;
+    outline: none;
+}
+
+body {
+    background-color: #fff;
+    font-size: 12px;
+    color: #666;
+}
+
+/* 清除浮动 */
+.clearfix:after {
+    visibility: hidden;
+    clear: both;
+    display: block;
+    content: ".";
+    height: 0
+}
+
+.clearfix {
+    *zoom: 1
+}
+
+h4 {
+    font-weight: 400;
+}

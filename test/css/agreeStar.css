@@ -1,0 +1,148 @@
+/* #agreeStar {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    z-index: 20;
+} */
+/* #agreeStar {
+    display: block;
+} */
+
+.agreeStar-content .view-nav {
+    padding-top: 15px;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.agreeStar-result {
+    padding: 0px 10px 0 10px;
+}
+
+.newitem {
+    padding: 8px 0;
+    border-top: 1px solid #f2f2f2;
+}
+
+.newitem:last-child {
+    border-bottom: 1px solid #f2f2f2;
+}
+
+.normal-list {
+    display: none;
+}
+
+.newitem-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.otheruser {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.otheruser-name {
+    font-size: 18px;
+}
+
+/* 确定头像的样式 */
+.otheruser-avatarbox {
+    padding: 0px 10px;
+}
+
+.otheruser-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+
+}
+
+/* 背景图的样式 */
+.otheruser-bgimage {
+    width: 50px;
+    height: 50px;
+}
+
+.otheruser-bg::after {
+    content: '';
+    font-family: 'iconfont';
+    padding: 0 5px;
+    font-size: 20px;
+    color: #787676;
+}
+
+.agreecontent {
+    padding-top: 2px;
+    color: #787676;
+}
+
+.normal-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+    height: 60px;
+    border-bottom: 1px solid #f2f2f2;
+}
+
+
+.agreeStar-user {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+
+.agreeStar-user img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+
+.agreeStar-user p {
+    color: #968989;
+    font-size: 14px;
+}
+
+.agreeStar-exp {
+    width: 100px;
+}
+
+.agreeStar-exp img {
+    height: 40px;
+    width: 40px;
+    margin-right: 10px;
+}
+
+/* 关注与粉丝页面 */
+/* #follow {
+    display: block;
+} */
+
+
+/* 验证互相关注的盒子 */
+.eachfollow {
+    display: inline-block;
+    /* width: 40px; */
+    padding: 5px 5px;
+    margin-right: 15px;
+    font-size: 14px;
+
+    color: #a063d4;
+    background-color: #fff;
+    border: 1px solid #a063d4;
+}
+
+.concern {
+    color: #fff;
+    background-color: #a063d4;
+}
+
+/* #fans {
+    display: none;
+} */

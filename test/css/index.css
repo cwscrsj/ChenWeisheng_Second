@@ -1,0 +1,152 @@
+#index {
+    /* position: relative; */
+    /* display: none; */
+    background-color: #fff;
+    z-index: 0;
+}
+
+#index>[class^=index] {
+    width: 100%;
+    padding: 0 10px 60px 10px;
+}
+
+
+
+/* 点击导航栏就切换的模块 */
+.index-navchange {
+    display: none;
+}
+
+/* 底部导航栏 */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 443px;
+    /* height: 40px; */
+    background-color: #fff;
+    color: #a8a8a8;
+    z-index: 10;
+}
+
+.bottom-nav ul {
+    max-width: 443px;
+    min-width: 320px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.bottom-nav ul li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 0;
+    cursor: pointer;
+}
+
+.bottom-nav ul li i {
+    font-size: 20px;
+    padding-bottom: 5px;
+}
+
+.bottom-nav .current {
+    color: #ac75d9;
+}
+
+
+
+/* 切换栏 */
+.view-nav .current a {
+    color: #ac75d9;
+    border-bottom: 2px solid #ac75d9;
+}
+
+.view-nav ul {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.view-nav ul li {
+    /* flex: 1; */
+    padding: 5px 2%;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    /* font-weight: 00; */
+}
+
+.view-nav ul li a {
+    padding-bottom: 5px;
+}
+
+
+
+/* 第三部分  个人中心*/
+.index-man {
+    /* display: none; */
+    width: 100%;
+    height: 100%;
+    /* background-color: pink; */
+}
+
+.user-infor {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-around; */
+    padding: 20px 10px 0 10px;
+    /* background-color: skyblue; */
+}
+
+.user-infor>img {
+    width: 80px;
+    height: 80px;
+    /* background-color: green; */
+    border-radius: 50%;
+}
+
+.man-userName {
+    flex: 1;
+    padding: 0 20px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.man-detail {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.user-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 5px;
+    font-size: 16px;
+}
+
+.user-item>p {
+    font-size: 20px;
+}
+
+
+.user-edit {
+    display: block;
+    margin-top: 50%;
+    transform: translateY(-50%);
+    padding: 8px 8px;
+    border: 1px solid #9c9c9c;
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+
+/* 登出的按钮 */
+#quit-login {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    background-color: #fff;
+}

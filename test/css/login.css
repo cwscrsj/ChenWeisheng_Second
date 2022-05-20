@@ -1,0 +1,182 @@
+#login {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background: url("../images/login/login-background.jpg") center no-repeat;
+    background-size: cover;
+    z-index: 20;
+}
+
+
+
+/* 遮罩层 */
+#login::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+
+
+
+.login-content {
+    /* 让页面在可视界面上水平方向能居中  */
+    /* 登录界面设置一个高度 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20% 0;
+}
+
+
+
+.loRe-box {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    z-index: 1;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: all 0.4s;
+
+}
+
+/* 这一部分是登录和注册的公共样式 */
+.loRe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 120px;
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: #fff;
+}
+
+
+.loRe-title {
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transform: translateX(-50%);
+
+    width: 90%;
+    height: 40%;
+
+    color: #fff;
+    border-radius: 10px;
+
+}
+
+
+.loRe-title h1 {
+    letter-spacing: 5px;
+}
+
+.loRe-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.loRe-form input {
+    position: relative;
+    width: 70%;
+    margin: 12px 0;
+    padding: 4px 10px;
+
+    font-size: 16px;
+    border-bottom: 1px solid rgb(226, 209, 209);
+    background-color: transparent;
+}
+
+/* 账号密码输入错误的盒子 */
+.form-error {
+    font-size: 14px;
+    color: #df3033;
+}
+
+.form-success {
+    font-size: 14px;
+    color: #40b83f;
+}
+
+.loRe-form .btn-loRe {
+    margin-top: 10px;
+    padding: 10px 60px;
+    color: #fff;
+    /* background-color: #df477d; */
+    border-radius: 10px;
+}
+
+
+.login-title {
+    background-color: #dd2466;
+}
+
+.reg-title {
+    background-color: #ff5900;
+}
+
+.btn-reg {
+    background-color: #ff5900;
+}
+
+.btn-login {
+    background-color: #dd2466;
+}
+
+/* 每个input前的小图标 */
+.username-box::before {
+    content: '';
+    font-family: 'iconfont';
+    font-size: 16px;
+}
+
+.password-box::before {
+    content: '';
+    font-family: 'iconfont';
+    font-size: 16px;
+
+}
+
+.change-btn {
+    padding: 10px 0;
+}
+
+#reg-tag {
+    color: #ff8200;
+    cursor: pointer;
+}
+
+#login-tag {
+    color: #db467b;
+    cursor: pointer;
+}
+
+/* 点击后转动注册和登录 */
+.register-back {
+    transform: translateZ(-1px) rotateY(-180deg);
+}
+
+.rotateY {
+    transform: rotateY(180deg);
+}

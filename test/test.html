@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        margin: 0 auto;
+        height: auto;
+        position: relative;
+    }
+
+    .item {
+        width: 200px;
+        height: auto;
+        padding: 10px;
+        position: absolute;
+        transition: all .5s ease-in-out;
+    }
+
+    .item .picture {
+        padding: 10px;
+        border: 1px solid #eee;
+        box-shadow: 0 0 5px 5px #eee;
+    }
+
+    .item .picture img {
+        width: 100%;
+    }
+
+
+    .show {
+        animation: scale 1s forwards;
+    }
+
+    @keyframes scale {
+        from {
+            transform: scale(0);
+        }
+
+        to {
+            transform: scale(1);
+        }
+    }
+</style>
+
+<body>
+
+    <h1 style="text-align: center; margin:50px 0;font-weight: 100;"> 瀑布流 </h1>
+
+    <div id="con" class="container">
+        <div class="item show">
+            <div class="picture">
+                <img src="images/1.jpg" alt="">
+            </div>
+        </div>
+        <div class="item show">
+            <div class="picture">
+                <img src="images/2.jpg" alt="">
+            </div>
+        </div>
+        <div class="item show">
+            <div class="picture">
+                <img src="images/3.jpg" alt="">
+            </div>
+        </div>
+        <div class="item show">
+            <div class="picture">
+                <img src="images/4.jpg" alt="">
+            </div>
+        </div>
+        <div class="item show">
+            <div class="picture">
+                <img src="images/5.jpg" alt="">
+            </div>
+        </div>
+        <div class="item show">
+            <div class="picture">
+                <img src="images/6.jpg" alt="">
+            </div>
+        </div>
+        <div class="item show">
+            <div class="picture">
+                <img src="images/7.jpg" alt="">
+            </div>
+        </div>
+        <div class="item show">
+            <div class="picture">
+                <img src="images/1.jpg" alt="">
+            </div>
+        </div>
+        <div class="item show">
+            <div class="picture">
+                <img src="images/2.jpg" alt="">
+            </div>
+        </div>
+        <div class="item show">
+            <div class="picture">
+                <img src="images/3.jpg" alt="">
+            </div>
+        </div>
+        <div class="item show">
+            <div class="picture">
+                <img src="images/4.jpg" alt="">
+            </div>
+        </div>
+        <div class="item show">
+            <div class="picture">
+                <img src="images/5.jpg" alt="">
+            </div>
+        </div>
+        <div class="item show">
+            <div class="picture">
+                <img src="images/6.jpg" alt="">
+            </div>
+        </div>
+        <div class="item show">
+            <div class="picture">
+                <img src="images/7.jpg" alt="">
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        window.addEventListener('load', () => {
+            waterFall();
+
+            window.addEventListener('resize', throttle(() => {
+                waterFall();
+            }, 300))
+
+            // 底部无限加载
+            window.addEventListener('scroll', throttle(() => {
+                // 获取到所有子元素
+                let item = document.getElementsByClassName('item');
+                // 当页面滚轮到最后一个元素时发送请求加载数据
+                if (item[item.length - 1].getBoundingClientRect().top < window.innerHeight) {
+                    addItem();
+                    waterFall();
+                }
+            }, 300))
+        })
+
+        function waterFall() {
+            // 获取父元素
+            let container = document.getElementById('con');
+            //获取子元素；
+            let item = document.getElementsByClassName('item');
+            // 定义一个数组，存放元素的高度
+            let ar = [];
+
+            //获取每一行最多能存放的元素    
+            // 浏览器宽度/元素宽度 向下取整
+            let clientWidth = document.documentElement.clientWidth;
+            let columnCount = Math.floor(clientWidth / item[0].offsetWidth);
+            container.style.width = columnCount * item[0].offsetWidth + "px";
+
+            // 添加一个for循环，选取高度最短的放到数组当中
+            for (let i = 0; i < item.length; i++) {
+                if (i < columnCount) {
+                    item[i].style.top = "0px";
+                    item[i].style.left = i * item[0].offsetWidth + "px";
+                    ar.push(item[i].offsetHeight);
+                }
+
+                else {
+                    // Math作为内置对象不能处理数组，可以用扩展运算符的方法转化格式
+                    let min = Math.min(...ar);
+                    // 通过indexOf得到高度最小元素的索引号
+                    let index = ar.indexOf(min);
+                    // 将元素放到该元素下方
+                    item[i].style.top = ar[index] + 'px';
+                    item[i].style.left = item[index].style.left;
+                    //将元素放到对应后需要重新找到高度最小的那一个
+                    ar[index] += item[i].offsetHeight;
+
+                }
+
+            }
+        }
+
+        // 节流函数
+        function throttle(callback, delay) {
+            let flag = true;
+            return function () {
+                if (flag) {
+                    flag = false;
+                    setTimeout(() => {
+                        callback();
+                        flag = true;
+                    }, delay)
+                }
+
+            }
+        }
+
+        //测试函数，添加数据
+        function addItem() {
+            let container = document.getElementById('con');
+            // const fragment = document.createDocumentFragment();
+            for (let i = 1; i <= 7; i++) {
+                let item =
+                    `<div class="item show">
+                        <div class="picture">
+                            <img src="images/${i}.jpg" alt="">
+                        </div>
+                </div>`
+                container.insertAdjacentHTML('beforeend', item);
+            }
+        }
+
+
+        // ajax({
+        //     type:,
+        //     method,
+        //     url,
+        //     success: (res) => {
+        //         //利用解构赋值将data的数组获取过来
+        //         let { data } = res;
+        //         // 将该数组用foreach遍历
+        //         data.forEach((value) => {
+        //             //value代表每一个数组的子元素
+        //             let { videoSrc, authorId } = value;
+
+        //         })
+        //     }
+        // })
+
+    </script>
+</body>
+
+</html>

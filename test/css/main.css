@@ -1,0 +1,44 @@
+/* 这个部分是整个界面的css文件 */
+body {
+    position: relative;
+    max-width: 443px;
+    min-width: 320px;
+    margin: 0 auto;
+    color: #000;
+    /* 水平方向溢出隐藏 */
+    overflow-x: hidden;
+    background-color: #f2f2f2;
+}
+
+/* 顶部回到首页的导航栏 */
+.back-index {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 999;
+    cursor: pointer;
+}
+
+.back-index::before {
+    content: '';
+    font-family: 'iconfont';
+    color: #fff;
+    font-size: 32px;
+}
+
+/* 设置每一个模块的统一样式 */
+.main {
+    min-height: 100vh;
+    width: 100%;
+    background-color: pink;
+}
+
+/* 代表弹出的二级页面 */
+.second {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    z-index: 20;
+}
