@@ -1,11 +1,5 @@
 
 let quitlogin_btn = document.querySelector('#quit-login');
-let index = document.querySelector('#index');
-let login_index = document.querySelector('#login');
-let follow_index = document.querySelector('#follow');
-let fan_index = document.querySelector('#fans');
-let agreeStar_index = document.querySelector('#agreeStar');
-let page = document.querySelector('#page');
 
 // 获得首页文章
 function indexArticle() {
@@ -39,26 +33,27 @@ function indexArticle() {
 indexArticle();
 
 // 个人中心页面初始化
-function indexinit() {
+function indexinit(node) {
+    let container = document.getElementById(node);
+    console.log(container);
     // 清除原先的所有数据
     //获取存放个人文章的节点
     // 个人页面的接口
-    let avatarBtn = document.querySelector('#man-avatar');
-    let nicknameBtn = document.querySelector('#man-userName');
-    let follerBtn = document.querySelector('#man-follower');
-    let fansBtn = document.querySelector('#man-fans');
+
+    let avatarBtn = container.querySelector('.man-avatar');
+    let nicknameBtn = container.querySelector('.man-userName');
     // 退出登录的按钮
     // 取存放文章item的地方
-    let noteArticles = document.querySelector('.man-list').querySelectorAll('.main-list')
-    let NoteUser = document.querySelector('#user-note-item');
-    let NoteStar = document.querySelector('#user-star-item');
-    let NoteAgree = document.querySelector('#user-agree-item');
+    let noteArticles = container.querySelector('.man-list').querySelectorAll('.main-list')
+    let NoteUser = container.querySelector('.user-note-items');
+    let NoteStar = container.querySelector('.user-star-items');
+    let NoteAgree = container.querySelector('.user-agree-items');
 
-    let followlengthBtn = document.querySelector('#man-follower');
-    let fanlengthBtn = document.querySelector('#man-fans');
-    let agreeStarLengthBtn = document.querySelector('#man-agree');
+    let followlengthBtn = container.querySelector('.man-follower');
+    let fanlengthBtn = container.querySelector('.man-fans');
+    let agreeStarLengthBtn = container.querySelector('.man-agree');
 
-    let id = localStorage.getItem('MyuserId');
+    let id = pageAuthorid;
     // 获取用户基本信息与笔记内容
 
     // 清除个人中心所有数据
@@ -68,8 +63,8 @@ function indexinit() {
     })
     avatarBtn.src = '';
     nicknameBtn.innerText = '';
-    follerBtn.innerText = 0;
-    fansBtn.innerText = 0;
+    followlengthBtn.innerText = 0;
+    fanlengthBtn.innerText = 0;
     agreeStarLengthBtn.innerText = 0;
     let i = 0;
     // 退出登录的按钮
@@ -79,8 +74,6 @@ function indexinit() {
         let { avatar, fans, follows, nickname } = res.user;
         avatarBtn.src = avatar;
         nicknameBtn.innerText = nickname;
-        follerBtn = follows.length;
-        fansBtn = fans.length;
 
         userArticles(id, (res) => {
             let { articles } = res;
@@ -150,7 +143,7 @@ function indexinit() {
     //获取用户粉丝数目
     userfan(id, (res) => {
         let length = res.fansList.length;
-        fanlengthBtn.innerHTML = length;
+        fanlengthBtn.innerText = length;
     })
 
     //获取用户点赞数和收藏数
@@ -172,13 +165,11 @@ function current(father) {
         item[i].onclick = function (e) {
             let authorId = this.getAttribute('authorid');
             let articleId = this.getAttribute('articleId');
+            pageAuthorid = authorId;
+            pageArticleid = articleId;
             console.log('用户' + authorId, '文章' + articleId);
-            localStorage.removeItem('articleId', 'authorId');
-            window.localStorage.setItem('articleId', articleId);
-            window.localStorage.setItem('authorId', authorId);
-            newindex(index, page);
+            newindex('page');
             articleDetail();
-            articleReview();
         };
     }
 }
@@ -190,7 +181,7 @@ quitlogin_btn.addEventListener('click', function () {
         // 阻止原页面的滑动
         index.classList.add("hidden");
         alert(res.msg, (res) => {
-            newindex(index, login_index);
+            newindex('login');
             localStorage.clear();
 
         })
@@ -200,7 +191,6 @@ quitlogin_btn.addEventListener('click', function () {
 
 // 点击关注或粉丝列表获取对应数据
 let userId = localStorage.getItem('MyuserId');
-console.log(userId);
 
 // 关注详情页
 function followerDetail(MyuserId = localStorage.getItem('MyuserId')) {
@@ -353,20 +343,20 @@ function clickFan() {
 let followbtn = document.getElementById('followbtn');
 followbtn.addEventListener('click', () => {
     followerDetail();
-    newindex(index, follow_index);
+    newindex('follow');
 });
 //打开粉丝详情页
 let fansbtn = document.getElementById('fansbtn');
 fansbtn.addEventListener('click', () => {
     fansDetail();
-    newindex(index, fan_index);
+    newindex('fans');
 
 })
 
 // 打开点赞与收藏详情页
 let agreeStarbtn = document.getElementById('agreeStarbtn');
 agreeStarbtn.addEventListener('click', () => {
-    newindex(index, agreeStar_index)
+    newindex('agreeStar');
     agreeStarDetail();
 })
 
@@ -385,14 +375,15 @@ function agreeStarDetail(MyuserId = localStorage.getItem('MyuserId')) {
         like.forEach(value => {
 
             const { articleId, images } = value.articleInfo;
-            const { nickname, avatar } = value.userInfo;
+            const { nickname, avatar, userId } = value.userInfo;
             let li = document.createElement('li');
+
             li.setAttribute('articleId', articleId);
             li.innerHTML = agreeStarItem(avatar, nickname, '赞了你的笔记', images[0]);
-            console.log(li);
             fragment.appendChild(li);
         })
         agreeList.append(fragment);
+        clickPage('agree-list');
         // console.log(res);
     })
 
@@ -407,14 +398,35 @@ function agreeStarDetail(MyuserId = localStorage.getItem('MyuserId')) {
             let li = document.createElement('li');
             li.setAttribute('articleId', articleId);
             li.innerHTML = agreeStarItem(avatar, nickname, '收藏了你的笔记', images[0]);
-            console.log(li);
             fragment.appendChild(li);
         })
         starList.append(fragment);
+        clickPage('star-list');
         // console.log(res);
 
     })
 }
+
+// 点击收藏与点赞的li进入文章详情页
+function clickPage(fatherNode) {
+    let father = document.getElementById(fatherNode);
+    let li = father.children;
+    for (let i = 0; i < li.length; i++) {
+        li[i].onclick = function (e) {
+            pageArticleid = this.getAttribute('articleId');
+            pageAuthorid = localStorage.getItem('MyuserId');
+
+            newindex('page');
+
+            // localStorage.setItem('authorId',)
+            articleDetail();
+        }
+    }
+}
+
+// pageAuthorid=10;
+// indexinit('user');
+
 // agreeStarDetail();
 // fansDetail();
 

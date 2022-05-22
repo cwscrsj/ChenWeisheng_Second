@@ -6,9 +6,12 @@
 // articleDetail();
 // articleReview();
 function articleDetail() {
+
     // 获取文章基本信息
-    const authorId = localStorage.getItem('authorId');
-    const articleId = localStorage.getItem('articleId');
+    const authorId = pageAuthorid;
+    const articleId = pageArticleid;
+    //获取评论信息
+    articleReview(articleId);
     // 获取当前用户的信息
     let userId = localStorage.getItem('MyuserId');
     //获取页面信息
@@ -32,7 +35,7 @@ function articleDetail() {
     let pageStarNum = document.getElementById('page-star-num');
 
     let pageReviewBtn = document.querySelector('.page-review-btn');
-
+    let pageUserInfo = document.getElementById('page-userbtn');
 
     // 清空一下页面信息
     pageImages.innerHTML = '';
@@ -46,6 +49,7 @@ function articleDetail() {
         pageTitle.innerText = title;
         pageContent.innerText = content;
 
+        console.log(reviews);
         // 把tag丢进盒子里
         pageTags.innerHTML = '';
         const tag_fragment = document.createDocumentFragment();
@@ -94,7 +98,8 @@ function articleDetail() {
     userBase(authorId, res => {
         //判断关注情况按钮
         let judge = 0;
-        let { avatar, nickname, fans } = res.user;
+        let { userId, avatar, nickname, fans } = res.user;
+        pageUserInfo.setAttribute('authorId', userId);
         // 查询是否关注该用户   
         if (fans.some(value => value == userId)) {
             pageFollow.className = 'follow';
@@ -150,6 +155,7 @@ function articleDetail() {
         // 将头像和昵称放到页面
         pageAuthorAvatar.src = avatar;
         pageAuthorName.innerText = nickname;
+
     })
 }
 
@@ -167,14 +173,13 @@ function reviewitem(avatar, nickname, content, postDate) {
     return item;
 
 }
-function articleReview() {
-    let articleId = localStorage.getItem('articleId');
-    let authorId = localStorage.getItem('authorId');
+function articleReview(articleId) {
+
     let pageReview = document.getElementById('page-review-content');
     pageReview.innerHTML = '';
     reviewbyArticle(articleId, 0, (res) => {
         let { reviews } = res;
-
+        console.log(res);
         let ul = document.createElement('ul');
         // 获取一下评论列表
         reviews.forEach(value => {
@@ -216,7 +221,7 @@ likebtn.addEventListener('click', throttle(() => {
     let num = likebtn.children[1];
     // console.log(localStorage.getItem('authorId'));
     let userId = localStorage.getItem('MyuserId');
-    let articleId = localStorage.getItem('authorId');
+    let articleId = pageArticleid;
     // 节流按钮
 
     if (likebtn.classList.contains('current')) {
@@ -238,13 +243,12 @@ starbtn.addEventListener('click', throttle(() => {
     let num = starbtn.children[1];
     // console.log(localStorage.getItem('authorId'));
     let userId = localStorage.getItem('MyuserId');
-    let articleId = localStorage.getItem('articleId');
+    let articleId = pageArticleid;
     // 节流按钮
     if (starbtn.classList.contains('current')) {
         articleUnstar(userId, articleId, (res) => {
             starbtn.classList.remove('current');
             num.innerText--;
-
         })
     }
     else {
@@ -257,7 +261,9 @@ starbtn.addEventListener('click', throttle(() => {
 }, 500))
 
 let pageUserInfo = document.getElementById('page-userbtn');
-pageUserInfo.addEventListener('click', () => {
-
+pageUserInfo.addEventListener('click', function (e) {
+    pageAuthorid = this.getAttribute('authorid');
+    indexinit('user');
+    newindex('user');
 })
 // 366

@@ -1,6 +1,13 @@
 // 存放一些直接引用的函数
 // ajax
 let url = 'http://175.178.193.182:8080';
+let changeIndex = [];
+let pageAuthorid=null;
+let pageArticleid=null;
+
+changeIndex.push('index');
+console.log(changeIndex);
+
 
 // 做一个节流函数
 function throttle(callback, delay) {
@@ -434,14 +441,24 @@ function Clickchage(circle, tab) {
     }
 }
 //点击相应的按钮后让首页限制在高度100vh,跳转到对应界面
-function newindex(now, target) {
+function newindex(targetstr) {
+    let ed = changeIndex.length - 1;
+    let now = document.getElementById(changeIndex[ed]);
+    let target = document.getElementById(targetstr);
+    changeIndex.push(targetstr);
+
     now.classList.add("hidden");
     target.style.display = 'block';
 }
 // 实现点击能回退的功能
-function returnto(now, target) {
-    target.classList.remove("hidden");
-    now.style.display = 'none';
+function returnto() {
+    let ed = changeIndex.length - 1;
+    let nowstr = document.getElementById(changeIndex[ed]);
+    let targetstr = document.getElementById(changeIndex[ed - 1]);
+    targetstr.classList.remove("hidden");
+    nowstr.style.display = 'none';
+
+    changeIndex.pop();
 }
 
 //轮播图函数

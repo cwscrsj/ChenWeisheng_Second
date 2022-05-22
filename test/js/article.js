@@ -94,7 +94,7 @@ class article {
     }
     articleInit() {
         this.clear();
-        newindex(this.index, this.articleindex);
+        newindex('index', 'article');
     }
     // 显示弹窗并预览话题内容
     unique() {

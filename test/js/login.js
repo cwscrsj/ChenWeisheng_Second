@@ -1,10 +1,9 @@
 
 //返回到主界面
 let secondbtn = document.querySelectorAll('.back-previous');
-let second = document.querySelectorAll('.second');
 for (let i = 0; i < secondbtn.length; i++) {
     secondbtn[i].onclick = () => {
-        returnto(second[i], document.querySelector('#index'));
+        returnto();
     }
 }
 
@@ -37,8 +36,8 @@ let bottomNavbtn = document.querySelector('#index-bottom-nav').querySelectorAll(
 let bottomResult = document.querySelectorAll('.index-navchange');
 Clickchage(bottomNavbtn, bottomResult);
 
-let manBtn = document.querySelector('.index-man').querySelector('.view-nav-ul').querySelectorAll('li');
-let manResult = document.querySelector('.man-list').querySelectorAll('.main-list');
+let manBtn = document.querySelector('#man-nav-ul').querySelectorAll('li');
+let manResult = document.querySelector('#man-list').querySelectorAll('.main-list');
 Clickchage(manBtn, manResult);
 
 
@@ -50,13 +49,15 @@ Clickchage(agreeStarBtn, agreeStarResult);
 let navBtn = document.querySelector('.view-nav-ul').querySelectorAll('li');
 let navResult = document.querySelector('.index-content').querySelectorAll('.main-list');
 Clickchage(navBtn, navResult);
+
+let otheruserBtn = document.querySelector('#otheruser-nav-ul').querySelectorAll('li');
+let otheruserResult = document.querySelector('#otheruser-list').querySelectorAll('.main-list');
+Clickchage(otheruserBtn, otheruserResult);
 // 登录-注册-将登录后的结果传到个人主页
 class loginfull {
-    constructor(obj1, obj2) {
+    constructor() {
         this.url = 'http://175.178.193.182:8080';
         // 获取节点
-        this.login = document.querySelector(obj1);
-        this.index = document.querySelector(obj2);
 
         //获取点击就旋转盒子的按钮
         this.changeReg = document.querySelector('#reg-tag');
@@ -98,11 +99,12 @@ class loginfull {
 
         // 如果本地存储没有用户登录则执行登录事件
         if (!localStorage.getItem('MyuserId')) {
-            newindex(this.index, this.login);
+            newindex('index', 'login');
         }
         else {
             // 页面初始化函数
-            indexinit();
+            pageAuthorid = localStorage.getItem('MyuserId');
+            indexinit('index');
 
         }
         // 绑定登录事件
@@ -132,13 +134,13 @@ class loginfull {
                 if (res.status === 200 || res.status === 406) {
                     // 将用户id放到本地存储里
                     localStorage.setItem('MyuserId', res.userId);
-
+                    pageAuthorid = localStorage.getItem('MyuserId');
                     //显示登录情况和回退到首页
                     alert(res.msg, () => {
-                        returnto(this.login, this.index);
+                        returnto();
                     });
                     // 将个人数据传输到个人中心
-                    indexinit();
+                    indexinit('index');
                 }
                 else
                     this.tips(this.loginFormError, res.msg, false);
@@ -168,40 +170,9 @@ class loginfull {
                 },
             });
 
-            //         loRe(regForm, '/register', (res) => {
-            //             if (res.status === 200 || res.status === 406) {
-            //                 tips(regFormError, res.msg, true);
-            //             }
-            //             else {
-            //                 tips(regFormError, res.msg, false);
-            //                 console.log(res);
-            //             }
-            //         })
 
-            // function loRe(Form, url, success) {
-            //     ajax({
-            //         type: 'formdata',
-            //         method: 'post',
-            //         url: 'http://175.178.193.182:8080' + url,
-            //         data: Form,
-            //         //成功后执行回调函数
-            //         success: success,
-            //     });
-            // }
 
         }
-
-        // surepwd.onblur = function () {
-        //     let btnsubmit = document.querySelector('.btn-reg');
-        //     if (this.value != regpwd.value && this.value != '') {
-        //         tips(regFormError, '两次密码输入不一致', false);
-        //         flag = false;
-        //     }
-        //     else {
-        //         tips(regFormError, '', true);
-        //         flag = true;
-        //     }
-        // }
 
     }
 
@@ -248,5 +219,5 @@ class loginfull {
 
 }
 
-new loginfull('#login', '#index');
+new loginfull();
 

@@ -102,14 +102,14 @@ class editfull {
                     //初始化编辑资料里性别的内容
                     this.genderinit(this.editinfor);
 
-                    newindex(this.index, this.edit);
+                    newindex('edit');
                 },
             })
 
         }
         else {
             this.baseinfor(this.editinfor);
-            newindex(this.index, this.edit);
+            newindex('edit');
         }
     }
     // 资料页内容的初始化
@@ -236,7 +236,7 @@ class editfull {
                 method: 'post',
                 url: this.url + '/user/upload',
                 data: this.formImages,
-                dataType:'form',
+                dataType: 'form',
                 success: (res) => {
                     // 这一步的目的是让下一次点击编辑资料可以更新数据
                     this.editinfor = '';
@@ -251,7 +251,7 @@ class editfull {
             method: 'post',
             url: this.url + '/user/edit',
             data: this.formBase,
-            dataType:'form',
+            dataType: 'form',
             success: (res) => {
                 // 这一步的目的是让下一次点击编辑资料可以更新数据
                 let { status, msg } = res;

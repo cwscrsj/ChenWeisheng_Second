@@ -127,9 +127,9 @@
         <div class="index-msg index-navchange">
             111
         </div>
+
         <div class="index-man index-navchange">
             <header class="index-title">
-
                 <!-- <input type="text" name="userId" style="display: none;"> -->
                 <button type="button" class="article-icon iconfont quit-login" id="quit-login">
                     &#xe61b;
@@ -139,20 +139,20 @@
 
             <div class="user-infor">
                 <img src="" alt="" id="man-avatar" class="man-avatar">
-                <h4 class="man-userName" id="man-userName">请先登录！</h4>
+                <h4 class="man-userName">请先登录！</h4>
             </div>
 
             <div class="man-detail">
                 <span class="user-item" id="followbtn">
-                    <p id="man-follower">0</p>
+                    <p class="man-follower">0</p>
                     <h4>关注</h4>
                 </span>
                 <span class="user-item" id="fansbtn">
-                    <p id="man-fans">0</p>
+                    <p class="man-fans">0</p>
                     <h4>粉丝</h4>
                 </span>
                 <span class="user-item" id="agreeStarbtn">
-                    <p id="man-agree">0</p>
+                    <p class="man-agree">0</p>
                     <h4>点赞与收藏</h4>
                 </span>
                 <div id="user-editbox" class="user-editbox">
@@ -162,16 +162,16 @@
 
             <div class="man-tab">
                 <nav class="view-nav">
-                    <ul class="view-nav-ul">
+                    <ul class="view-nav-ul" id="man-nav-ul">
                         <li class="current"><a href="#">笔记</a></li>
                         <li><a href="#">收藏</a></li>
                         <li><a href="#">赞过</a></li>
                     </ul>
                 </nav>
-                <div class="man-list">
-                    <div class="main-list" id="user-note-item" style="display:block;"></div>
-                    <div class="main-list" id="user-star-item"></div>
-                    <div class="main-list" id="user-agree-item"></div>
+                <div class="man-list" id="man-list">
+                    <div class="main-list user-note-items" id="user-note-item" style="display:block;"></div>
+                    <div class="main-list user-star-items" id="user-star-item"></div>
+                    <div class="main-list user-agree-items" id="user-agree-item"></div>
                 </div>
             </div>
 
@@ -489,10 +489,14 @@
     </div>
 
     <!-- 其他用户详情页 -->
-    <div id="user" class="main">
+    <div id="user" class="main second">
         <header class="index-title">
+            <a href="#" class="article-icon iconfont back-previous">
+                &#xe743;
+            </a>
         </header>
-        <div class="user-infor">
+
+        <!-- <div class="user-infor">
             <img src="" alt="" class="man-avatar">
             <h4 class="man-userName">请先登录！</h4>
         </div>
@@ -517,16 +521,54 @@
 
         <div class="man-tab">
             <nav class="view-nav">
-                <ul class="view-nav-ul">
+                <ul class="view-nav-ul" id="otheruser-nav-ul">
                     <li class="current"><a href="#">笔记</a></li>
                     <li><a href="#">收藏</a></li>
                     <li><a href="#">赞过</a></li>
                 </ul>
             </nav>
-            <div class="man-list">
+            <div class="man-list" id="otheruser-list">
                 <div class="main-list" id="otheruser-note-item" style="display:block;"></div>
                 <div class="main-list" id="otheruser-star-item"></div>
                 <div class="main-list" id="otheruser-agree-item"></div>
+            </div>
+        </div> -->
+
+        <div class="user-infor">
+            <img src="" alt="" class="man-avatar">
+            <h4 class="man-userName">没有找到用户</h4>
+        </div>
+
+        <div class="man-detail">
+            <span class="user-item">
+                <p class="man-follower">0</p>
+                <h4>关注</h4>
+            </span>
+            <span class="user-item">
+                <p class="man-fans">0</p>
+                <h4>粉丝</h4>
+            </span>
+            <span class="user-item">
+                <p class="man-agree">0</p>
+                <h4>点赞与收藏</h4>
+            </span>
+            <div id="user-editbox" class="user-editbox">
+                <span class="user-edit" id="user-edit">发送信息</span>
+            </div>
+        </div>
+
+        <div class="man-tab">
+            <nav class="view-nav">
+                <ul class="view-nav-ul" id="otheruser-nav-ul">
+                    <li class="current"><a href="#">笔记</a></li>
+                    <li><a href="#">收藏</a></li>
+                    <li><a href="#">赞过</a></li>
+                </ul>
+            </nav>
+            <div class="man-list" id="otheruser-list">
+                <div class="main-list user-note-items" style="display:block;"></div>
+                <div class="main-list user-star-items"></div>
+                <div class="main-list user-agree-items"></div>
             </div>
         </div>
 
